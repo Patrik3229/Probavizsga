@@ -2,17 +2,23 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { MemberService } from './member.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
+import { PrismaService } from 'src/prisma.service';
 
 @Controller('member')
 export class MemberController {
-  constructor(private readonly memberService: MemberService) {}
+  constructor(private readonly memberService: MemberService, private readonly db: PrismaService) {}
 
-  @Post()
+  @Post('api/members')
   create(@Body() createMemberDto: CreateMemberDto) {
     return this.memberService.create(createMemberDto);
   }
 
-  @Get()
+  @Post('/api/members/:id/pay')
+  Pay(@Body() @Param('id') id: string) {
+    return this.memberService.pay(+id)
+  }
+
+  @Get('/api/members')
   findAll() {
     return this.memberService.findAll();
   }

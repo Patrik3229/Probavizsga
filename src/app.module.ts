@@ -8,6 +8,6 @@ import { PaymentModule } from './payment/payment.module';
 @Module({
   imports: [MemberModule, PaymentModule],
   controllers: [AppController],
-  providers: [AppService, PrismaService],
+  providers: [AppService],
 })
 export class AppModule {}
