@@ -40,7 +40,7 @@ export class MemberService {
     })
   }
 
-  pay(id: number){
+  /*pay(id: number){
     return this.db.payments.create({
       data:{
         amount: 5000,
@@ -49,7 +49,7 @@ export class MemberService {
         member: {connect: {id:id}}
       }
     })
-  }
+  }*/
 
   findOne(id: number) {
     return `This action returns a #${id} member`;

@@ -13,10 +13,10 @@ export class MemberController {
     return this.memberService.create(createMemberDto);
   }
 
-  @Post('/api/members/:id/pay')
+  /*@Post('/api/members/:id/pay')
   Pay(@Body() @Param('id') id: string) {
     return this.memberService.pay(+id)
-  }
+  }*/
 
   @Get('/api/members')
   findAll() {
